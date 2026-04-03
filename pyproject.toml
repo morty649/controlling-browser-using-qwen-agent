@@ -1,0 +1,7 @@
+[project]
+name = "browser-control-using-grpo-qwen"
+version = "0.1.0"
+description = "Controlling a browser using qwen model Why ? I wanted to do it and i can do it"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
