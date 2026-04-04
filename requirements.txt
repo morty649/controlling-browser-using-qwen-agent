@@ -2,3 +2,5 @@ Pillow
 transformers
 pyyaml
 modal
+trl
+wandb
