@@ -16,12 +16,12 @@ class FineTuneConfig(BaseSettings):
 
     # Language model parameters
     model_name : str # HF model name
-    max_seq_length : str # Number of tokens in context window for the LM
+    max_seq_length : int # Number of tokens in context window for the LM
     system_prompt : str # System prompt it is
 
     #BrowserGym environment 
     browsergym_url : str # where it is available
-    dataset_size : str # from browsergym the no. of scenarios we use  
+    dataset_size : int # from browsergym the no. of scenarios we use  
     default_goal : str # if the environment does not provide more explicit instructions
 
     # How long and how aggressively we train

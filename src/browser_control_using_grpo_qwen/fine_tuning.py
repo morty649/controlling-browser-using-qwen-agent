@@ -30,7 +30,7 @@ model_checkpoints_volume = get_volume("browser_control_using_grpo_qwen")
 def rollout_func(
         prompts:list[str],
         trainer:GRPOTrainer,
-        clients:BrowserGymEnv,
+        client:BrowserGymEnv,
         system_prompt:str,
         max_steps:int,
 ) -> dict[str,list]:
@@ -213,7 +213,7 @@ def create_peft_config(config:FineTuneConfig) -> LoraConfig | None:
         lora_alpha=config.lora_alpha,
         lora_dropout=config.lora_dropout,
         bias=config.lora_bias,
-        task_type="CASUAL_LM",
+        task_type="CAUSAL_LM",
         target_modules=config.lora_target_modules,
         use_rslora=config.use_rslora,
     )
