@@ -1,3 +1,4 @@
 Pillow
 transformers
 pyyaml
+modal
