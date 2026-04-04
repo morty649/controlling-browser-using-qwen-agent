@@ -8,7 +8,7 @@ import os
 from .configuration import FineTuneConfig
 from .paths import get_path_to_media
 
-config = FineTuneConfig.from_yaml(file_name='qwen_evalution_debug.yaml') 
+config = FineTuneConfig.from_yaml(file_name='qwen_evaluation_debug.yaml') 
 system_prompt = config.system_prompt
 max_steps = config.max_steps
 dataset_prompt = config.default_goal
