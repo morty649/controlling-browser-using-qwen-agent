@@ -8,6 +8,14 @@ def get_path_to_configs() -> str:
 
     return path
 
+def get_path_to_media() -> str:
+    path = str(Path(__file__).parent.parent.parent / "media")
+
+    # create path if it does not exist
+    Path(path).mkdir(parents=True, exist_ok=True)
+
+    return path
+
 def get_path_model_checkpoints(experiment_name:str) -> str:
     '''Returns path to a cached dataset in a model volume'''
 
