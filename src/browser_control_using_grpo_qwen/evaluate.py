@@ -14,16 +14,22 @@ max_steps = config.max_steps
 dataset_prompt = config.default_goal
 model_name = "morty649/Qwen2-0.5B-Instruct-browsergym-20260405-121307"
 
-def parse_action(response_text: str) -> str:
-    """Parse BrowserGym action from model response."""
-    # Extract first line that looks like an action
-    for line in response_text.strip().split("\n"):
-        line = line.strip()
-        if "(" in line and ")" in line:
-            return line
+# def parse_action(response_text: str) -> str:
+#     """Parse BrowserGym action from model response."""
+#     # Extract first line that looks like an action
+#     for line in response_text.strip().split("\n"):
+#         line = line.strip()
+#         if "(" in line and ")" in line:
+#             return line
 
-    # Fallback to noop if no valid action found
-    return "noop()"
+#     # Fallback to noop if no valid action found
+#     return "noop()"
+
+import re
+
+def parse_action(response_text: str) -> str:
+    match = re.search(r"(click|fill|scroll|send_keys|noop)\(.*?\)", response_text)
+    return match.group(0) if match else "noop()"
 
 
 def make_user_prompt(goal: str, step_num: int, axtree: str, error: str = "") -> str:
@@ -92,15 +98,23 @@ def test_click_in_browsergym(
                 tokenize=False,
             )
 
+            print("\n--- PROMPT ---\n")
+            print(prompt_text)
+            print("\n--------------\n")
+
             model_inputs = tokenizer([prompt_text],return_tensors = "pt").to(model.device)
             generated_ids = model.generate(
                 **model_inputs,
-                max_new_tokens = 512
+                max_new_tokens=64,
+                do_sample=True,
+                temperature=0.7,
+                top_p=0.9,
             )
             output_ids = generated_ids[0][len(model_inputs.input_ids[0]):]
 
             # Decode and extract model response
             generated_text = tokenizer.decode(output_ids,skip_special_tokens=True)
+            print("RAW MODEL OUTPUT:", generated_text)
 
             action_str = parse_action(generated_text)
             print(f"Step {step_num+1}: {action_str}")
