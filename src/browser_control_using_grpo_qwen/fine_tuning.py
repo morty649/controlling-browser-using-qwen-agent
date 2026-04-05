@@ -81,7 +81,7 @@ def rollout_once(
     from trl.experimental.openenv import generate_rollout_completions
 
     result = env.reset()
-    observation  = result.observation()
+    observation  = result.observation
 
     print("Goal : ",observation.goal)
     print("axtree_txt : ",observation.axtree_txt)
@@ -220,7 +220,7 @@ def create_peft_config(config:FineTuneConfig) -> LoraConfig | None:
 
 @app.function(
     image = image,
-    gpu = "A100", # will try different but budget issue
+    gpu =  "L40S", #"A100", # will try different but budget issue
     volumes = {
         "/hf_model_cache":hf_models_volume,
         "/model_checkpoints":model_checkpoints_volume,
