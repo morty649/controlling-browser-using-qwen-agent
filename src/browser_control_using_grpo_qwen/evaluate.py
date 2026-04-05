@@ -12,7 +12,7 @@ config = FineTuneConfig.from_yaml(file_name='qwen_evaluation_debug.yaml')
 system_prompt = config.system_prompt
 max_steps = config.max_steps
 dataset_prompt = config.default_goal
-model_name = "Will be taken from huggingface after once running"
+model_name = "morty649/Qwen2-0.5B-Instruct-browsergym-20260405-121307"
 
 def parse_action(response_text: str) -> str:
     """Parse BrowserGym action from model response."""
