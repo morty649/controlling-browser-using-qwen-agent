@@ -1,7 +1,4 @@
-#########################################################
-# LFM2-350M with full fine-tuning for book-flight task
-# NOTE: as per 2025-12-25 this example is not complete due to a bug in OpenEnv
-#########################################################
+# Evaluation of the finetuned model , will be taken from huggingface
 
 seed: 09
 # resume_from_checkpoint: null
