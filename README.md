@@ -59,6 +59,18 @@ This setup is useful for:
 
 It is especially useful when you want a model that learns from interaction, not just from static examples.
 
+Accessibility impact
+
+This approach can also help improve accessibility workflows.
+If combined with an open-source speech-to-text model, users who cannot use their hands could interact with browser tasks using only voice commands.
+
+For example:
+- speaking instructions like “open Gmail” or “click the search bar”
+- navigating websites hands-free
+- assisting users with physical disabilities in completing repetitive web actions
+
+This moves toward voice-driven browser agents that can assist people in everyday digital tasks.
+
 ## How it works
 
 The training loop follows a simple structure:
