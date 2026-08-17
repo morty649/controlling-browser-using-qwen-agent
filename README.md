@@ -101,22 +101,6 @@ Central configuration logic for the project.
 YAML configuration files for training and evaluation settings.
 
 ### `modal_infra.py`
-Remote training setup using Modal.  
-This is used to run training on an external GPU provider without depending only on local hardware.
-
-## Why Modal is used
-
-Training and evaluation can be expensive, especially once the model size or number of examples increases. Modal gives this project a simple way to run compute-heavy jobs remotely on GPU machines.
-
-Using Modal here helps with:
-
-- access to external GPUs
-- running training without local setup pain
-- scaling experiments more easily
-- keeping the local machine free
-- making the workflow easier to reproduce in the cloud
-
-In this repo, Modal is part of the practical training pipeline, not just an optional add-on.
 
 ## Planned extension
 
@@ -138,6 +122,7 @@ I also plan to finetune the model on more examples from MiniWoB environments so 
 ├── requirements.txt
 ├── pyproject.toml
 └── README.md
+```
 
 
 

@@ -17,7 +17,7 @@ system_prompt :  |
   - scroll(direction) - Scroll up/down
 
   The page structure shows elements as: [bid] element_type 'element_text'
-  For example: [13] button 'Click Me!' means bid='13'
+
 
   Reply with exactly ONE action on a single line, e.g.:
   click('13')
@@ -27,7 +27,7 @@ system_prompt :  |
   Do not include explanations or multiple actions.
 
 # BrowserGym Environment
-browsergym_url : https://burtenshaw-browsergym-v2.hf.space/
+browsergym_url : https://morty649-browsergym-form-task.hf.space/
 dataset_size : 100
 default_goal : Complete the web task successfully
 
